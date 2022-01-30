@@ -51,8 +51,8 @@ public class Animal {
 
 
         public void sell(Human buyer, Human seller, Double price) {
-            //if (seller.pet = pet)
-                if (buyer.getSalary() > price) {
+            if (buyer.pet != this) {
+                if (buyer.cash > price) {
                     buyer.pet = this;
                     seller.pet = null;
                     seller.cash += price;
@@ -60,6 +60,10 @@ public class Animal {
                     System.out.println(name + " was sold.");
                 } else {
                     System.out.println("Low on cash");
+                }
+            }
+            else{
+                    System.out.println("No animal");
                 }
         }
 

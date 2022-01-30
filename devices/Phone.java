@@ -22,15 +22,19 @@ public class Phone extends Device implements Saleable {
 
     @Override
     public void sell(Human buyer, Human seller, Double price){
-        if(buyer.cash>price){
-            buyer.mobile = this;
-            seller.mobile = null;
-            seller.cash += price;
-            buyer.cash -= price;
-            System.out.println(producer + " " + model + " was sold.");
+        if(buyer.mobile != this) {
+            if (buyer.cash > price) {
+                buyer.mobile = this;
+                seller.mobile = null;
+                seller.cash += price;
+                buyer.cash -= price;
+                System.out.println(producer + " " + model + " was sold.");
+            } else {
+                System.out.println("Low on cash");
+            }
         }
         else{
-            System.out.println("Low on cash");
+            System.out.println("No phone");
         }
     }
 

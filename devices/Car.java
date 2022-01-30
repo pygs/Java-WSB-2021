@@ -30,15 +30,19 @@ public class Car extends Device {
     }
 
     public void sell(Human buyer, Human seller, Double price){
-        if(buyer.getSalary()>price){
-            buyer.auto = this;
-            seller.auto = null;
-            seller.cash += price;
-            buyer.cash -= price;
-            System.out.println(producer + " " + model + " was sold.");
+        if(buyer.auto != this) {
+            if (buyer.cash > price) {
+                buyer.auto = this;
+                seller.auto = null;
+                seller.cash += price;
+                buyer.cash -= price;
+                System.out.println(producer + " " + model + " was sold.");
+            } else {
+                System.out.println("Low on cash");
+            }
         }
         else{
-            System.out.println("Low on cash");
+            System.out.println("No car");
         }
     }
 }
