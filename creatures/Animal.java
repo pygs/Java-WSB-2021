@@ -1,10 +1,11 @@
 package com.company.creatures;
 
-public class Animal {
+public abstract class Animal {
         final public String species;
         private Double weight;
         public String name;
         public Boolean alive;
+
 
         public String toString() {
             return species + " " + name + " " + weight;
@@ -28,7 +29,15 @@ public class Animal {
         public void feed() {
             if (this.weight > 0) {
                 System.out.println("You fed " + name + ".");
-                this.weight += 1;
+                System.out.println(this.weight);
+            } else {
+                System.out.println("It's that hard to put food in the bowl, right?");
+            }
+        }
+        public void feed(Double foodWeight){
+            if (this.weight > 0) {
+                System.out.println("You fed " + name + ".");
+                this.weight += foodWeight;
                 System.out.println(this.weight);
             } else {
                 System.out.println("It's that hard to put food in the bowl, right?");
