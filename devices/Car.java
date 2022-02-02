@@ -1,15 +1,17 @@
 package com.company.devices;
 
-import com.company.Device;
 import com.company.creatures.Human;
 
-public class Car extends Device {
+public abstract class Car extends Device {
     public String bodyType;
     private Double millage;
     public Boolean manualGear;
 
-    public Car(String model, String producer, Integer yearOfProduction, Double value) {
+    public Car(String model, String producer, Integer yearOfProduction, Double value, String bodyType, Double millage, Boolean manualGear) {
         super(model, producer, yearOfProduction, value);
+        this.bodyType = bodyType;
+        this.millage = millage;
+        this.manualGear = manualGear;
     }
 
     @Override
@@ -45,5 +47,6 @@ public class Car extends Device {
             System.out.println("No car");
         }
     }
+    public abstract void refuel();
 }
 
