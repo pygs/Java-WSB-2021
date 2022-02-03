@@ -32,21 +32,27 @@ public abstract class Car extends Device {
     }
 
     public void sell(Human buyer, Human seller, Double price){
-        if(buyer.auto != this) {
-            if (buyer.cash > price) {
-                buyer.auto = this;
-                seller.auto = null;
-                seller.cash += price;
-                buyer.cash -= price;
-                System.out.println(producer + " " + model + " was sold.");
-            } else {
-                System.out.println("Low on cash");
+        if(seller.hasCar(this)) {
+            if(buyer.freeSpot()) {
+                if(buyer.cash > price) {
+                    seller.removeCar(this);
+                    buyer.addCar(this);
+                    seller.cash += price;
+                    buyer.cash -= price;
+                    System.out.println(producer + " " + model + " was sold.");
+                }
+                else {
+                    System.out.println("Low on cash");
+                }
+            }
+            else {
+                System.out.println("No parking spot");
             }
         }
-        else{
-            System.out.println("No car");
+        else {
+                System.out.println("Seller is scammer");
         }
-    }
+        }
     public abstract void refuel();
 }
 
