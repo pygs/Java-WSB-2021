@@ -46,5 +46,14 @@ public class Main {
         auto1.sell(brother, me, 2000.0);
         auto2.sell(brother, me, 100.0);
         auto1.sell(brother, me, 2000.0);
+        auto1.sell(brother, someone, 100.0);
+
+        auto1.lastOwner();
+        auto1.transactionList(someone, me);
+        auto1.transactionList(me, brother);
+        auto1.transactionCount();
+        auto1.wasOwner(someone);
+        auto1.wasOwner(me);
+
     }
 }

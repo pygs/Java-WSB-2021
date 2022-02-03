@@ -83,10 +83,12 @@ public class Human extends Animal{
         else if (this.salary >= auto.value) {
             System.out.println("You bought this car with your own money. Congratulations!");
             this.garage[garageSpot] = auto;
+            auto.updateOwner(this);
         }
         else if (this.salary >= (auto.value/12)){
             System.out.println("You bought this car with loan. Bit sad, but hey, you have a car.");
             this.garage[garageSpot] = auto;
+            auto.updateOwner(this);
         }
         else{
             System.out.println("Sign up for college and find new job or pray for a rise");
